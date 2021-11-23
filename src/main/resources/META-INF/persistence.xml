@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+    <persistence-unit name="Default" transaction-type="RESOURCE_LOCAL">
+        <class>br.com.mike.jpa.Usuario</class> <!--//dessa forma o jpa sabe q vou precisar gerenciar essa classe-->
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/> <!--//h2 = para testar, é um banco de dados em memória,
+             não precisa informar usuário e senha-->
+
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+
+            <property name="hibernate.show_sql" value="true"/> <!--//permite configurar se o sql q a gente gera vai ser mostrado no console-->
+            <property name="hibernate.format_sql" value="true"/> <!--//o código sql gerado vai ser formatado?-->
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/> <!--//importante: quando usamos o hibernate
+            devemos informar o dialeto q iremos usar. temos q definir de acordo com o db q estamos usando, nesse caso é o H2.-->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/> <!--//hibernate deve criar e destruir o db antes da aplicação ser iniciada-->
+        </properties>
+    </persistence-unit>
+
+</persistence>
